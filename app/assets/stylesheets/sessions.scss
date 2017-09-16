@@ -1,0 +1,27 @@
+.title {
+  text-align: center;
+  font-size: 200% ; 
+  font-style: italic;
+  // color: #ff5a5f ; 
+}
+
+.container {
+  display: block;
+  border: 2px solid; 
+  background: rgba(54, 54, 54, 0.6);
+  border-radius: 30px ; 
+  width: 50% ; 
+  margin: auto ; 
+  margin-top: 50px ; 
+}
+.text-field, .name-field, .password-field {
+  text-align: center;
+  font-size: 150%;
+
+}
+
+
+
+.submit-field {
+  text-align: center;
+}

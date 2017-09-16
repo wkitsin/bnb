@@ -1,0 +1,31 @@
+<h1>Hi, there! Let's get started listing your place </h1>
+
+<%= form_for @listing do |form| %>
+	<div class="text-field">
+	  <%= form.label :location %> :
+	  <%= form.text_field :location %>
+	</div>
+
+	<div class="guest-field">
+	  <%= form.label :number_of_guest %> : 
+	  <%= form.text_field :number_of_guest %>
+	</div>
+
+	<div class="category-field">
+	  <%= form.label :category %> : 
+	  <%= form.text_field :category %>
+	</div>
+
+	<div class="price-field">
+	  <%= form.label :price %> : 
+	  <%= form.text_field :price %>
+	</div>
+
+	<div class="submit-field">
+	  <%= form.submit %>
+	</div>
+<% end %>
+
+
+
+
