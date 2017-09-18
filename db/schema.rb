@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170916071331) do
+ActiveRecord::Schema.define(version: 20170917104454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170916071331) do
     t.integer "number_of_guest"
     t.integer "price"
     t.string  "category"
+    t.string  "type_of_room"
     t.index ["user_id"], name: "index_listings_on_user_id", using: :btree
   end
 

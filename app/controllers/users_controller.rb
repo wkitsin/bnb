@@ -5,6 +5,17 @@ class UsersController < Clearance::UsersController
 		puts "+++++++++++++++++++"
 		puts params 
 		@email = current_user.email 
+
+		@not_my_listing = [] 
+		@user = [] 
+		Listing.all.order("id ASC").each do |i|
+			if i.user_id != current_user.id 
+				@not_my_listing << i 
+				@user << User.find(i.user_id).name 
+			end 
+		end 
+		@merge = @not_my_listing.zip(@user)
+		# byebug 
 	end 
 
 	def edit 

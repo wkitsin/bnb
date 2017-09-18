@@ -1,7 +1,14 @@
-<p> Index Page </p> 
-
 <p> Hello user <%= @email %></p>
-
-<p>Create a listing </p>
+<%= @update %>
 
 <%= link_to "Create Listing", new_listing_path %> 
+<br>
+<%= link_to "Show all my listings" , listings_path %>
+<br> 
+<!-- <% byebug %> -->
+
+<% @merge.each do |i| %> 
+	<%= i[0].location %> hosted by <%= i[1] %>
+	<br>
+<% end %>
+

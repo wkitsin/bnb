@@ -1,0 +1,39 @@
+
+	<div class="location-field">
+	  <%= form.label :location %> :
+	  <%= form.text_field :location %>
+	</div>
+	</br>
+
+	<div class="guest-field">
+	  <%= form.label :number_of_guest %> : 
+	  <%= form.number_field :number_of_guest %>
+	</div>
+	</br>
+
+	<div class="room-field">
+		<%= form.label :Type_of_room %> : 
+		  <select name='room', id='room'>
+		  	<option value='Private Room'>Private Room</option>
+		  	<option value='Entire Place'>Entire Place</option>
+		  	<option value='Shared Room'>Shared Room</option>
+		  </select>
+	</div>
+
+	</br>
+
+	<div class="category-field">
+		<%= form.label :category %> : 
+		  <select name='category', id='category'>
+		  	<option value='Smoker'>Smoker</option>
+		  	<option value='Non-Smoker'>Non-Smoker</option>
+		  	<option value='pet'>pet</option>
+		  </select>
+	</div>
+	</br>
+
+	<div class="price-field">
+	  <%= form.label :price_per_night %> : 
+	  <%= form.number_field :price %>
+	</div>
+

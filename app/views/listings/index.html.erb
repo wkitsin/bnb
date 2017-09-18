@@ -1,0 +1,5 @@
+<% @listing.each do |i| %> 
+	<%= i.location %>
+	<%= link_to "edit", edit_listing_path(i.id) %>
+	<br> 
+<% end %> 

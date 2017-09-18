@@ -1,3 +1,20 @@
 // Place all the styles related to the listings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.create_listings, .greetings {
+	text-align: center;
+}
+
+
+.lists {
+  display: block;
+  border: 2px solid; 
+  background: rgba(54, 54, 54, 0.6);
+  border-radius: 30px ; 
+  width: 50% ; 
+  margin: auto ; 
+  margin-top: 50px ; 
+}
+
+
