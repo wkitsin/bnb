@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   get "/profile" => "users#profile"
 
   resources :listings 
+
+  get "/search" => "listings#search"
 end

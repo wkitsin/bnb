@@ -1,7 +1,15 @@
-<%= form_for @listing do |form| %>
-	<%= render partial: '/listings/form', object: form %>
-
-	<div class="listing-field">
-		<%= form.submit %>
+<br> 
+<div class='edit-form'>
+	<div class='edit-context'>
+	<h1 style="color: white;"> Edit your form here </h1>
+		<br> 
+		<%= form_for @listing do |form| %>
+		  <%= render partial: '/listings/form', object: form %>
+		  <br>
+		  <div class="btn btn-primary">
+		    <%= form.submit %>
+		  </div>
+		  <br> 
+		<% end %>
 	</div>
-<% end %>
+</div>

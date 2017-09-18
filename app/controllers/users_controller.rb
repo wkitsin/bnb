@@ -32,6 +32,7 @@ class UsersController < Clearance::UsersController
 		@user = User.find(current_user.id).email 
 	end 
 
+
 	 def user_from_params
 	    email = user_params.delete(:email)
 	    password = user_params.delete(:password)

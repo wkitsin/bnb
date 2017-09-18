@@ -1,3 +1,6 @@
+<%= render partial: 'layouts/searchbar' %>
+
+
 <p> Hello user <%= @email %></p>
 <%= @update %>
 
@@ -8,7 +11,33 @@
 <!-- <% byebug %> -->
 
 <% @merge.each do |i| %> 
-	<%= i[0].location %> hosted by <%= i[1] %>
-	<br>
+	<div class="card card-cascade">
+
+	    <!--Card image-->
+	    <div class="view overlay hm-white-slight">
+	        <img src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg" class="img-fluid" alt="">
+	        <a>
+	            <div class="mask"></div>
+	        </a>
+	    </div>
+	    <!--/.Card image-->
+
+	    <!--Card content-->
+	    <div class="card-body">
+	        <!--Title-->
+	        <h4 class="card-title" style="font-weight: bold;"><%= i[0].title %> </h4>
+	        <!--Text-->
+	        <p class="card-text">Location: <%= i[0].location %></p>
+	        <p class="card-text">Number of guest: <%= i[0].number_of_guest %></p>
+	        <p class="card-text">Price per night: $<%= i[0].price %></p>
+	        <p class="card-text">Type of room: <%= i[0].type_of_room %></p>
+	        <p class="card-text">Category: <%= i[0].category %></p>
+	        <a class="btn btn-primary">Book now</a>
+	    </div>
+	    <!--/.Card content-->
+	    <h10 class="hosted">Hosted By:<%= i[1] %></h10>
+	</div>
+	<br> 
+	<!--/.Card Narrower-->
 <% end %>
 

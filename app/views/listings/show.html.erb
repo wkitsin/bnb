@@ -1,8 +1,32 @@
 <p> Please double check your listing </p>
 
+<div class="card card-cascade">
 
-<%= @listing.location %>
+    <!--Card image-->
+    <div class="view overlay hm-white-slight">
+        <img src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg" class="img-fluid" alt="">
+        <a>
+            <div class="mask"></div>
+        </a>
+    </div>
+    <!--/.Card image-->
 
-<%= link_to "edit", edit_listing_path %>
-<%= link_to "home", root_path %>
+    <!--Card content-->
+    <div class="card-body">
+        <!--Title-->
+        <h4 class="card-title" style="font-weight: bold;"><%= @listing.title %> </h4>
+        <!--Text-->
+        <p class="card-text">Location: <%= @listing.location %></p>
+        <p class="card-text">Number of guest: <%= @listing.number_of_guest %></p>
+        <p class="card-text">Price per night: $<%= @listing.price %></p>
+        <p class="card-text">Type of room: <%= @listing.type_of_room %></p>
+        <p class="card-text">Category: <%= @listing.category %></p>
+        <%= link_to "edit", edit_listing_path %>
+        <%= link_to "home", root_path %>
+    </div>
+    <!--/.Card content-->
+    <h10 class="hosted">Hosted By:<%= User.find(@listing.user_id).name  %></h10>
+</div>
+<br>
+
 

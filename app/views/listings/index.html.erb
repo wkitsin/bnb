@@ -1,5 +1,31 @@
-<% @listing.each do |i| %> 
-	<%= i.location %>
-	<%= link_to "edit", edit_listing_path(i.id) %>
-	<br> 
+<br> 
+<% @merge.each do |i| %> 
+	<div class="card card-cascade">
+
+		    <!--Card image-->
+		    <div class="view overlay hm-white-slight">
+		        <img src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg" class="img-fluid" alt="">
+		        <a>
+		            <div class="mask"></div>
+		        </a>
+		    </div>
+		    <!--/.Card image-->
+
+		    <!--Card content-->
+		    <div class="card-body">
+		        <!--Title-->
+		        <h4 class="card-title" style="font-weight: bold;"><%= i[0].title %> </h4>
+		        <!--Text-->
+		        <p class="card-text">Location: <%= i[0].location %></p>
+		        <p class="card-text">Number of guest: <%= i[0].number_of_guest %></p>
+		        <p class="card-text">Price per night: $<%= i[0].price %></p>
+		        <p class="card-text">Type of room: <%= i[0].type_of_room %></p>
+		        <p class="card-text">Category: <%= i[0].category %></p>
+		        <%= link_to "edit", edit_listing_path(i[0].id) %>
+		        <%= link_to "delete", listing_path(i[0].id), method: :delete %>
+		    </div>
+		    <!--/.Card content-->
+		    <h10 class="hosted">Hosted By:<%= i[1] %></h10>
+		</div>
+		<br> 
 <% end %> 
