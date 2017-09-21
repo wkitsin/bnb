@@ -63,6 +63,7 @@ body {
   .navbar {
     width:100%;
     background:#ff5a5f;
+    height: 40px ; 
   }
 
 .navbar ul {
@@ -77,7 +78,11 @@ body {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
- 
+
+ body, ol, ul, dl {
+     margin-bottom: 1rem;
+ }
+
 .navbar a:last-child {
   margin-right:0px;
 }
@@ -87,6 +92,7 @@ body {
   transition:color linear 0.15s;
   text-decoration: none;
 }
+
  
 .navbar a:hover, .navbar .current-item a {
   text-decoration:none;

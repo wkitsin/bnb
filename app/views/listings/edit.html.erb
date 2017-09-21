@@ -6,10 +6,11 @@
 		<%= form_for @listing do |form| %>
 		  <%= render partial: '/listings/form', object: form %>
 		  <br>
-		  <div class="btn btn-primary">
-		    <%= form.submit %>
-		  </div>
+		  <%= form.file_field :photos, multiple: true, class: "form-control" %>
+		  <%= form.submit class: "btn btn-primary" %>
 		  <br> 
 		<% end %>
 	</div>
+	<br> 
 </div>
+

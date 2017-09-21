@@ -8,7 +8,7 @@
 		<%= form_for @listing do |form| %>
 			<%= render partial: '/listings/form', object: form %>
 			</br>
-
+			<%= form.file_field :photos, multiple: true, class: "form-control" %>
 			<div class="listing-field">
 			  <%= form.submit %>
 			</div>

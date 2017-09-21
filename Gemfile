@@ -55,3 +55,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'faker', :git => 'git://github.com/stympy/faker.git', :branch => 'master'
 gem 'bootstrap', '~> 4.0.0.beta'
+gem 'will_paginate', '~> 3.1.0'
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+gem "fog-aws"
+gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
+                              :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'

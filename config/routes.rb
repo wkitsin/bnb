@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resource :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
+      # resources :listings
   end
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
@@ -18,7 +19,10 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   get "/profile" => "users#profile"
 
-  resources :listings 
+  resources :listings do 
+    resources :reservations 
+  end 
 
   get "/search" => "listings#search"
+  post "/listings/:id/verify" => "listings#verify", as: 'verify'
 end
