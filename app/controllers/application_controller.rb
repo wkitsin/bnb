@@ -20,15 +20,12 @@ class ApplicationController < ActionController::Base
   	end 
   end 
 
-  def listing_allowed?(action, params)
-
+  def listing_allowed?
   	user_find = Listing.find(params[:id]).user
-	  	if current_user.id == user_find.id
-	  		return action 
-	  	else 
-	  		flash[:error] = "You have no authority to perform the action"
-	  		redirect_to action
-	  	end 
+  	if current_user.id != user_find.id
+		flash[:error] = "You have no authority to perform the action"
+  		redirect_to root_path
+  	end 
   end 
 
 end

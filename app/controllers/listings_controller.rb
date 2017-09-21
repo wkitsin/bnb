@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+  before_action :listing_allowed?, only: [:edit, :update, :destroy]
 
 	def index 
 		@listing = [] 
@@ -12,7 +13,6 @@ class ListingsController < ApplicationController
   end
   
   def show
-  	# byebug 
   	@listing = Listing.find(params[:id])
     # byebug 
   end 
@@ -54,16 +54,9 @@ class ListingsController < ApplicationController
 
   def destroy 
   	# byebug 
-    # listing_allowed?(Listing.delete(params[:id]), params)
-    listing = Listing.find(params[:id])
-    if current_user.id == listing.user.id
-      listing.delete(params[:id])
-      flash[:destroy] = "Your listing at #{location} has been deleted"
-      redirect_to listings_path
-    else 
-      flash[:error] = "You have no authority to perform the action"
-      redirect_to listing 
-    end 
+    Listing.delete(params[:id])
+    flash[:destroy] = "Your listing has been deleted"
+    redirect_to listings_path
   end 
 
   def verify 
