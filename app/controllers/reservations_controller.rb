@@ -17,8 +17,16 @@ class ReservationsController < ApplicationController
 			# byebug 
 			flash[:error] = @reservation.errors.full_messages
 		end 
-		redirect_to Listing.find(params[:listing_id])
+		redirect_to listing_reservation_path(params[:listing_id], @reservation.id)
 	end  
+
+	def show 
+		@listing = Listing.find(params[:listing_id])
+		@reservation = Reservation.find(params[:id])
+		@total_price = (DateTime.parse(@reservation.check_out) - DateTime.parse(
+			@reservation.check_in)).to_i * @listing.price 
+		# byebug 
+	end 
 
 	private 
 	def reservation_params 

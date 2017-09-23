@@ -25,4 +25,6 @@ Rails.application.routes.draw do
 
   get "/search" => "listings#search"
   post "/listings/:id/verify" => "listings#verify", as: 'verify'
+
+  get "braintree/new" => "braintree#new"
 end
