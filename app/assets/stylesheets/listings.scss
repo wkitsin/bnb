@@ -1,0 +1,52 @@
+// Place all the styles related to the listings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$background :rgba(54, 54, 54, 0.6); 
+$text_colour : white; 
+
+.create_listings, .greetings {
+	text-align: center;
+}
+
+
+.lists {
+  display: block;
+  border: 2px solid; 
+  background: rgba(54, 54, 54, 0.6);
+  border-radius: 30px ; 
+  width: 50% ; 
+  margin: auto ; 
+  margin-top: 50px ; 
+}
+
+.card {
+	width: 35% ; 
+	margin: auto;
+  display: block;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.hosted {
+  font-style: 80% ; 
+}
+
+.edit-form {
+  border: 2px solid;
+  border-radius: 30px; 
+  width: 50% ; 
+  margin: auto ; 
+  background-color: $background
+}
+
+.edit-context {
+  text-align: center;
+}
+
+.picture {
+  width: 680px;
+  height: 400px;
+}

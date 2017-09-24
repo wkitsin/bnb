@@ -1,0 +1,16 @@
+<br> 
+<div class='edit-form'>
+	<div class='edit-context'>
+	<h1 style="color: white;"> Edit your form here </h1>
+		<br> 
+		<%= form_for @listing do |form| %>
+		  <%= render partial: '/listings/form', object: form %>
+		  <br>
+		  <%= form.file_field :photos, multiple: true, class: "form-control" %>
+		  <%= form.submit class: "btn btn-primary" %>
+		  <br> 
+		<% end %>
+	</div>
+	<br> 
+</div>
+

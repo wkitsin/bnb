@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Bnb</title>
-    <%= csrf_meta_tags %>
+<head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<%= render partial: "layouts/navbar" %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <div id="flash">
+    <% flash.each do |key, value| -%>
+      <div id="flash_<%= key %>"><%=h value %></div>
+    <% end %>
+  </div>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= yield %>
+
+</body>
+
+
 </html>
