@@ -1,3 +1,10 @@
 <p> Hello user <%= @user %> </p>
 
+<%= link_to "Create Listing", new_listing_path %> 
+<br>
+<%= link_to "Show all my listings" , listings_path %>
+<br> 
+<%= link_to "Show all my reservations" , reservations_path %>
+<br>
+
 <%= link_to "Edit profile", edit_user_path(current_user.id) %>

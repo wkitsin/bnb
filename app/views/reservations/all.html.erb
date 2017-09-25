@@ -1,0 +1,72 @@
+<br>
+<% @merge.each do |i| %> 
+	<div class="card card-cascade">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+	       <div id="carouselExampleControls-<%= i[1].id %>" class="carousel slide" data-ride="carousel">
+	       		  <div class="carousel-inner" role="listbox">
+
+	       		  	<div class="carousel-item active">
+		       		  	<% if i[1].photos[0] == nil %>
+		       		  		<%= image_tag "https://www.landmarklondon.co.uk/uploads/files/Executive-Room.jpg", class: "picture" %>
+		       		  	</div>
+		       		  	<div class="carousel-item">
+		       		  		<%= image_tag "https://thumbs.dreamstime.com/z/five-star-hotel-room-2688844.jpg", class: "picture" %>
+	       		  		</div>
+		       		  	<% else %>
+		       		  	  <%= image_tag "#{i[1].photos[0].url}", class: "d-block img-fluid"%>
+		       		  	</div>
+			       		  <% i[1].photos[1..-1].each do |j| %>
+			       		    <div class="carousel-item">
+			       		      <%= image_tag j.url, class: "d-block img-fluid"%>
+			       		    </div>
+			       			<% end %>
+		       			<% end %>	
+	       		  </div>
+		       		  <a class="carousel-control-prev" href="#carouselExampleControls-<%= i[1].id %>" role="button" data-slide="prev">
+		       		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		       		    <span class="sr-only">Previous</span>
+		       		  </a>
+		       		  <a class="carousel-control-next" href="#carouselExampleControls-<%= i[1].id %>" role="button" data-slide="next">
+		       		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		       		    <span class="sr-only">Next</span>
+		       		  </a>
+	       </div>
+		</div>
+	 
+
+	    <!--Card content-->
+	    <div class="card-body">
+	        <!--Title-->
+	        <h4 class="card-title" style="font-weight: bold;"><%= i[1].title %> </h4>
+	        <!--Text-->
+	        <p class="card-text">Location: <%= i[1].location %></p>
+	        <p class="card-text">Number of guest: <%= i[1].number_of_guest %></p>
+	        <p class="card-text">Price per night: $<%= i[1].price %></p>
+	        <p class="card-text">Type of room: <%= i[1].type_of_room %></p>
+	        <p class="card-text">Category: <%= i[1].category %></p>
+			<hr>
+			<p class="card-text" style='font-weight: bold;'>Check-in date: <%= i[0].check_in %></p>
+			<p class="card-text" style='font-weight: bold;'>Check-out date: <%= i[0].check_out %></p>  
+			<p class="card-text" style='font-weight: bold;'>Total payable amount: $<%= i[0].price %></p>  
+			<hr> 
+
+			<% if i[0].paid_statusm == true %> 
+				<p style='font-weight: bold;'> Paid </p>
+			<% else %>
+				<%= button_to "Pay now", reservation_braintree_new_path(i[0].id) , method: :get , class: "btn btn-primary"%>
+				<br> 
+				<%= button_to "Cancel Booking", listing_reservation_path(i[1].id, i[0].id), method: :delete , class: "btn btn-danger"%>
+			<% end %>
+	    </div>
+	    <!--/.Card content-->
+	    <h10 class="hosted">Hosted By: <%= i[0].user.name %></h10>
+	    <br>
+	    <% if i[1].verify == true %>
+	    	<%= link_to "Verified by admin", verify_path(i[1].id), method: :post %> 
+	    <% else %>
+	    	<%= link_to "Not verified by admin", verify_path(i[1].id), method: :post %> 
+	    <% end %> 
+	</div>
+	<br> 
+	<!--/.Card Narrower-->
+<% end %>

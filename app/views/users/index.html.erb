@@ -4,11 +4,6 @@
 <p> Hello user <%= @email %></p>
 <%= @update %>
 
-<%= link_to "Create Listing", new_listing_path %> 
-<br>
-<%= link_to "Show all my listings" , listings_path %>
-<br> 
-
 <% @merge.order("id ASC").each do |i| %> 
 	<div class="card card-cascade">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">

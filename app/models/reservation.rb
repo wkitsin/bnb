@@ -1,7 +1,7 @@
 class Reservation < ApplicationRecord
 	belongs_to :user 
 	belongs_to :listing
-	validate :overlapping_dates 
+	validate :overlapping_dates, on: :create
 
 	def overlapping_dates 
 		# byebug
