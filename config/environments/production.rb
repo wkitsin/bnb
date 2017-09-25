@@ -12,10 +12,7 @@ Rails.application.configure do
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
-  config.action_controller.perform_caching = 
-
-#mail system 
-  config.action_mailer.raise_delivery_errors = true
+  config.action_controller.perform_caching = true
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -26,8 +23,6 @@ Rails.application.configure do
     password:             ENV['GMAIL_PASSWORD'],
     authentication:       'plain',
     enable_starttls_auto: true  }
-
-  config.action_mailer.perform_caching = false
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
