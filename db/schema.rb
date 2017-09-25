@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170920072507) do
+ActiveRecord::Schema.define(version: 20170924155322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20170920072507) do
     t.string  "check_in"
     t.string  "check_out"
     t.boolean "paid_statusm", default: false
+    t.integer "price"
     t.index ["listing_id"], name: "index_reservations_on_listing_id", using: :btree
     t.index ["user_id"], name: "index_reservations_on_user_id", using: :btree
   end

@@ -20,11 +20,16 @@ Rails.application.routes.draw do
   get "/profile" => "users#profile"
 
   resources :listings do 
-    resources :reservations 
+    resources :reservations
   end 
 
   get "/search" => "listings#search"
   post "/listings/:id/verify" => "listings#verify", as: 'verify'
 
-  get "braintree/new" => "braintree#new"
+  resources :reservations, only: [:show] do 
+    get "braintree/new" => "braintree#new"
+    post "braintree/checkout" => "braintree#checkout"
+  end 
+
+  get "/reservations" => "reservations#all"
 end

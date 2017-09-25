@@ -50,15 +50,15 @@
         <p class="card-text" style='font-weight: bold;'>Total payable amount: $<%= @total_price %></p>  
     </div>
 
-    <%= button_to "Pay now", braintree_new_path , method: :get %>
+    <%= button_to "Pay now", reservation_braintree_new_path(@reservation.id) , method: :get, class: "btn btn-primary"%>
     <hr>
     <!--/.Card content-->
     <h10 class="hosted">Hosted By:<%= User.find(@listing.user_id).name  %></h10>
     <br>
     <% if @listing.verify == true %>
-        <%= link_to "Verified by admin", verify_path(@listing.id), method: :post %> 
+        <%= link_to "Verified by admin", verify_path(current_user.id), method: :post %> 
     <% else %>
-        <%= link_to "Not verified by admin", verify_path(@listing.id), method: :post %> 
+        <%= link_to "Not verified by admin", verify_path(current_user.id), method: :post %> 
     <% end %> 
 </div>
 <br>

@@ -28,4 +28,12 @@ class ApplicationController < ActionController::Base
   	end 
   end 
 
+    def reservation_allowed?
+      user_find = Reservation.find(params[:id]).user
+      if current_user.id != user_find.id
+      flash[:error] = "You have no authority to perform the action"
+        redirect_to root_path
+      end 
+    end 
+
 end
