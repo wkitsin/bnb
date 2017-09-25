@@ -64,7 +64,7 @@ gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
 
 gem 'braintree'
 
-
-gem 'sidekiq'
-gem 'rails_12factor', group: :production
-
+group :production do 
+  gem 'sidekiq'
+  gem 'rails_12factor', group: :production
+end 
