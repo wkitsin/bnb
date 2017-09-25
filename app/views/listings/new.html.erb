@@ -1,0 +1,24 @@
+
+<div class='lists' > 
+	<div class='greetings'>
+		<h1>Hi, there! Let's get started listing your place </h1>
+	</div>
+
+	<div class='create_listings'>
+		<%= form_for @listing do |form| %>
+			<%= render partial: '/listings/form', object: form %>
+			</br>
+			<%= form.file_field :photos, multiple: true, class: "form-control" %>
+			<div class="listing-field">
+			  <%= form.submit %>
+			</div>
+			</br>
+		<% end %>
+	</div>
+</div>
+
+
+
+
+
+

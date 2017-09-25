@@ -1,0 +1,67 @@
+<br>
+<% if @errors %> 
+  <%= @errors %>
+<% end %>
+<div class="card card-cascade">
+
+    <!--Card image-->
+   <div id="myCarousel" class="carousel slide" data-ride="carousel">
+           <div id="carouselExampleControls-<%= @listing.id %>" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner" role="listbox">
+
+                    <div class="carousel-item active">
+                        <% if @listing.photos == [] %>
+                            <%= image_tag "https://www.landmarklondon.co.uk/uploads/files/Executive-Room.jpg", class: "picture" %>
+                        </div>
+                        <div class="carousel-item">
+                            <%= image_tag "https://thumbs.dreamstime.com/z/five-star-hotel-room-2688844.jpg", class: "picture" %>
+                        </div>
+                        <% else %>
+                          <%= image_tag "#{@listing.photos[0].url}", class: "d-block img-fluid"%>
+                        </div>
+                          <% @listing.photos[1..-1].each do |j| %>
+                            <div class="carousel-item">
+                              <%= image_tag j.url, class: "d-block img-fluid"%>
+                            </div>
+                            <% end %>
+                        <% end %>   
+                  </div>
+                      <a class="carousel-control-prev" href="#carouselExampleControls-<%= @listing.id %>" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleControls-<%= @listing.id %>" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+           </div>
+        </div>
+    <!--/.Card image-->
+
+    <!--Card content-->
+    <div class="card-body">
+        <!--Title-->
+        <h4 class="card-title" style="font-weight: bold;"><%= @listing.title %> </h4>
+        <!--Text-->
+        <p class="card-text">Location: <%= @listing.location %></p>
+        <p class="card-text">Number of guest: <%= @listing.number_of_guest %></p>
+        <p class="card-text">Price per night: $<%= @listing.price %></p>
+        <p class="card-text">Type of room: <%= @listing.type_of_room %></p>
+        <p class="card-text">Category: <%= @listing.category %></p>
+        
+        <% if @listing.user_id == current_user.id %>
+          <%= link_to "edit", edit_listing_path %>
+          <%= link_to "home", root_path %>
+        <% end %>
+    </div>
+    <!--/.Card content-->
+    <h10 class="hosted">Hosted By:<%= User.find(@listing.user_id).name  %></h10><br>
+    <% if @listing.verify == true %>
+        <%= link_to "Verified by admin", verify_path(@listing.id), method: :post %> 
+    <% else %>
+        <%= link_to "Not verified by admin", verify_path(@listing.id), method: :post %> 
+    <% end %> 
+</div>
+<br>
+
+

@@ -13,4 +13,33 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap
 //= require_tree .
+
+$(document).ready(function() {
+	console.log('hi');
+
+	$('.checkin').change(function(){
+		console.log('asasas');
+		var start_date = $('.checkin')[0].value.split('-')
+
+		function addDays(date, days) {
+		  var d = new Date(date);
+		  	month = '' + (d.getMonth() + 1),
+	        day = '' + (d.getDate() + days),
+	        year = d.getFullYear();
+		         
+		    if (month.length < 2) month = '0' + month;
+		    if (day.length < 2) day = '0' + day;
+
+		  return [year, month, day].join('-');
+		}
+
+		var d = (addDays(start_date, 1))
+		$('.checkout').attr('min', d)
+	});
+
+}); 
+
+
+

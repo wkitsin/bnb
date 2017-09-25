@@ -1,0 +1,7 @@
+
+	<%= form_for @users do |i|%>
+		name: <%= i.text_field :name %><br>
+		email: <%= i.text_field :email %><br>
+		<%= i.file_field :avatar, class: "form-control" %><br>
+		<%= i.submit %>
+	<% end %>
