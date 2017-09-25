@@ -23,6 +23,8 @@ Rails.application.configure do
     password:             ENV['GMAIL_PASSWORD'],
     authentication:       'plain',
     enable_starttls_auto: true  }
+    
+    config.active_job.queue_adapter = :sidekiq
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
