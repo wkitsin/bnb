@@ -65,7 +65,6 @@ GEM
     braintree (2.78.0)
       builder (>= 2.0.0)
     builder (3.2.3)
-    byebug (9.1.0)
     carrierwave (1.0.0)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
@@ -253,7 +252,6 @@ DEPENDENCIES
   bootstrap (~> 4.0.0.beta)
   bootstrap-datepicker-rails!
   braintree
-  byebug
   carrierwave (~> 1.0)
   clearance
   coffee-rails (~> 4.2)
