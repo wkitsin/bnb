@@ -1,19 +1,29 @@
-<nav class="navbar navbar-inverse bg-inverse">
-
-  <ul class="active">
-    <li class="current-item"><%= link_to "Home", root_path %></li>
-    <% if signed_in? -%>
-      <% if current_user.avatar.url == nil %>
-        <li> <%= link_to image_tag("images.png", class: "sample_avatar"), profile_path%></li>
-      <% else %>
-        <li> <%= link_to image_tag("#{current_user.avatar.url}", class: "avatar"), profile_path%></li>
-      <% end %>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-custom">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="active"><%= link_to "Home", root_path %></li>
+      <% if signed_in? -%>
+      <div class='searchbar'>
+        <li> <%= render partial: 'layouts/searchbar' %> </li>
+      </div>
+      <div class='right'>
+      <ul class="nav navbar-nav">
+        <% if current_user.avatar.url == nil %>
+          <li> <%= link_to image_tag("images.png", class: "sample_avatar"), profile_path%></li>
+        <% else %>
+          <li> <%= link_to image_tag("#{current_user.avatar.url}", class: "avatar"), profile_path%></li>
+        <% end %>
       <li> <%= link_to t(".sign_out"), sign_out_path, method: :delete, class: "sign_out" %></li>
-    <% else %>
+      <% else %>
       <li> <%= link_to "Sign in with Facebook", "/auth/facebook" %></li>
       <li> <%= link_to t(".sign_up"), sign_up_path %></li>
-<!--       <li> <%= link_to "Show all listings", "/listings " %> </li> -->
-    <% end -%>
+      </ul>
+      </div>
+      <% end -%>
     	<li><%= link_to "About Us", "#" %></li>
-  </ul>
+      </div>
+    </ul>
+  </div>
 </nav> 
+
+

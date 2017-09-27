@@ -17,7 +17,7 @@ class BraintreeController < ApplicationController
 	   )
 
 	  if result.success?
-	  	flash[:notice] = "Transaction at #{re.listing.location} from #{re.check_in}
+	  	flash[:notice] = "Payment at #{re.listing.location} from #{re.check_in}
 	  	to #{re.check_out} has been successful!"
 	  	paid = re.update(paid_statusm: true)
 	  	customer = re.user

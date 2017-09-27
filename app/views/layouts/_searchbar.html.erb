@@ -1,5 +1,32 @@
 <form class="form-inline" action='/search' method='get' >
  <label class="sr-only" for="inlineFormInput">Name</label>
-   <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Search Here" name='finding'>
+   <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Search location here" name='finding_location'>
+
+   <div class="room-field">
+   	  <select name='type_of_room', id='type_of_room' class="form-control" >
+   	  <option value=''></option>
+   	  	<option value='Private Room'>Private Room</option>
+   	  	<option value='Entire Place'>Entire Place</option>
+   	  	<option value='Shared Room'>Shared Room</option>
+   	  </select>
+   </div>
+
+
+	<div class="category-field">
+	  <select name='category', id='category' class="form-control">
+	  <option value=''></option>
+	  	<option value='Smoker'>Smoker</option>
+	  	<option value='Non-Smoker'>Non-Smoker</option>
+	  	<option value='pet'>pet</option>
+	  </select>
+	</div>
+	
+	<div class="form-group row">
+	  <label for="example-number-input" class="col-2 col-form-label">Number</label>
+	  <div class="col-10">
+	    <input class="form-control" type="number" value="" id="example-number-input" name='guest_number'>
+	  </div>
+	</div>
+
    <button type="submit" class="btn btn-primary" >Submit</button>
 </form>
