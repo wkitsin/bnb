@@ -9,7 +9,7 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+//= require popper
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
@@ -39,7 +39,8 @@ $(document).ready(function() {
 		$('.checkout').attr('min', d)
 	});
 
-}); 
 
+
+}); 
 
 
