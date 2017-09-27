@@ -20,7 +20,6 @@ class Listing < ApplicationRecord
 				relation = relation.or(Listing.where("title ilike ? or location ilike ?", "%#{j}%", "%#{j}%"))
 			end 
 			relation
-			byebug 
 		end 	
 	}
 	scope :type, -> (type) { type.blank? ? all : where(type_of_room: type)}
