@@ -43,9 +43,7 @@ class ListingsController < ApplicationController
   end 
 
   def search
-    hash = {category: params[:category], guest: params[:guest_number], 
-      general: params[:finding_location], type: params[:type_of_room]}
-
+    hash = Hash[search_params.keys.zip(search_params.values)]
     @listing = Listing
     # params[:listing] = {category: 'aaa', guest: 'bbb', general: 'ccc'}
     hash.each do |key, value|
@@ -57,16 +55,14 @@ class ListingsController < ApplicationController
       # Listing.category('aaa').guest('bbb')
       # byebug 
     end
-  	@search_result = [params[:finding_location], params[:category],
-     params[:guest_number], params[:type_of_room]]
-     @search_result = @search_result.reject { |i| i.empty? }
+
+  	  @search_result = [search_params]
+      @search_result = @search_result.reject { |i| i.empty? }
   	@merge = @listing.paginate(:page => params[:page], :per_page => 10)
-  	# byebug 
 
   end 
 
   def destroy 
-  	# byebug 
     Listing.delete(params[:id])
     flash[:destroy] = "Your listing has been deleted"
     redirect_to listings_path
@@ -91,12 +87,11 @@ class ListingsController < ApplicationController
 
   private
   def listing_params
-    # byebug 
   	params.require(:listing).permit(:title, :number_of_guest, :price, :category, 
       :location, :type_of_room, photos: [])
   end
 
   def search_params 
-      params.require(:listing).permit(:finding_location, :category, :guest_number, :type_of_room)
+      params.require(:search).permit(:general, :category, :guest, :type)
   end 
 end

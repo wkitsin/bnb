@@ -1,31 +1,21 @@
-<form class="form-inline" action='/search' method='get' >
- <label class="sr-only" for="inlineFormInput">Name</label>
-   <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Search location here" name='finding_location'>
+
+<%= form_for :search, url: search_path, html: { class: "search_form"} , method: :get do |form| %>
+
+	<div class='general-field'>
+	<%= form.text_field :title, placeholder: "Search location here", name: 'search[general]' , class: "form-control"%>
+	</div>
 
    <div class="room-field">
-   	  <select name='type_of_room', id='type_of_room' class="form-control" >
-   	  <option value=''>Select Room</option>
-   	  	<option value='Private Room'>Private Room</option>
-   	  	<option value='Entire Place'>Entire Place</option>
-   	  	<option value='Shared Room'>Shared Room</option>
-   	  </select>
+   	<%= form.select "type", options_for_select([["Select Room", ""],["Private Room", "Private Room"],["Entire Place", "Entire Place"],["Shared Room", "Shared Room"]]) , {}, {:class => "form-control"} %>
    </div>
 
-
 	<div class="category-field">
-	  <select name='category', id='category' class="form-control">
-	  <option value=''>Select Category</option>
-	  	<option value='Smoker'>Smoker</option>
-	  	<option value='Non-Smoker'>Non-Smoker</option>
-	  	<option value='pet'>pet</option>
-	  </select>
+	<%= form.select "category", options_for_select([["Select Category", ""], ["Smoker", "Smoker"], ["Non-Smoker", "Non-Smoker"], ["Pet", "Pet"]]) , {}, {:class => "form-control"}%>
 	</div>
 	
 	<div class="form-group row">
-	  <div class="col-10">
-	    <input class="form-control" type="number" value="" id="example-number-input" name='guest_number'>
-	  </div>
+	  <%= form.number_field :guest, class: "form-control" %>
 	</div>
 
-   <button type="submit" class="btn btn-primary" >Submit</button>
-</form>
+   <%= form.submit 'Search', :class => 'btn btn-primary'%>
+<% end %>

@@ -18,22 +18,14 @@
 
 	<div class="room-field">
 		<%= form.label :type_of_room %> : 
-		  <select name='listing[type_of_room]', id='type_of_room'>
-		  	<option value='Private Room'>Private Room</option>
-		  	<option value='Entire Place'>Entire Place</option>
-		  	<option value='Shared Room'>Shared Room</option>
-		  </select>
+		<%= form.select "type_of_room", options_for_select([["Select Room", ""],["Private Room", "Private Room"],["Entire Place", "Entire Place"],["Shared Room", "Shared Room"]]) , {}, {:class => "form-control"} %>
 	</div>
 
 	</br>
 
 	<div class="category-field">
 		<%= form.label :category %> : 
-		  <select name='listing[category]', id='category'>
-		  	<option value='Smoker'>Smoker</option>
-		  	<option value='Non-Smoker'>Non-Smoker</option>
-		  	<option value='pet'>pet</option>
-		  </select>
+		<%= form.select "category", options_for_select([["Select Category", ""], ["Smoker", "Smoker"], ["Non-Smoker", "Non-Smoker"], ["Pet", "Pet"]]) , {}, {:class => "form-control"}%>
 	</div>
 	</br>
 
