@@ -68,4 +68,5 @@ group :production do
   gem 'rails_12factor', group: :production
 end 
 gem 'popper_js', '~> 1.11', '>= 1.11.1'
+gem 'figaro'
 
